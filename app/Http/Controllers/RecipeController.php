@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Recipe;
+use Illuminate\Support\Facades\Auth;
 
 class RecipeController extends Controller
 {
     public function index()
     {
-        $recipes = Recipe::with('user')->get();
+        $recipes = Recipe::where('user_id',Auth::id())->get();
         return view('dashboard', compact('recipes'));
     }
 

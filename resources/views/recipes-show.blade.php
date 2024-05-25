@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/riva-dashboard-tailwind/riva-dashboard.css">
-<x-app-layout>
+<x-app-layout class="">
 
 
 <div class="container">
@@ -22,11 +22,11 @@
                     <h1 class="uppercase text-green font-extrabold text-2xl"
                     >{{$recipe->title}}</h1>
 
-                    <h2 class="text-xl text-softgreen font-semibold mt-4"
-                    >tempo de preparo: {{$recipe->time}}</h2>
+                    <h2 class="text-xl text-softgreen font-semibold"
+                    >Tempo de preparo {{$recipe->time}}</h2>
 
 
-                    <p>{{$recipe->instructions}}</p>
+                    <ol class="list-decimal list-inside">{{$recipe->instructions}}</ol>
                 </div>
             </div>
         </div>

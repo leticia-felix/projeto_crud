@@ -13,6 +13,13 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+        <script defer>
+            function closeAlert() {
+                const alertBox = document.getElementById('alert-box');
+                alertBox.style.display = 'none';
+            }
+        </script>
     </head>
     <body class="font-sans antialiased ">
         <div class="min-h-screen bg-softgreen">

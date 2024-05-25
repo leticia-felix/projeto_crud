@@ -21,19 +21,22 @@
 
         <div class="flex h-full flex-wrap items-center justify-center lg:justify-between">
 
-            <div class="shrink-1 mb-12 grow-0 basis-auto md:mb-0 md:w-9/12 md:shrink-0 lg:w-6/12 xl:w-6/12">
+            <div class="shrink-1 grow-0 basis-auto md:mb-0 md:w-9/12 md:shrink-0 lg:w-6/12 xl:w-6/12">
                 <x-application-logo  ></x-application-logo >
             </div>
 
 
-            <div class=" mb-12 md:mb-0 md:w-8/12 lg:w-5/12 xl:w-5/12 text-snow font-semibold">
+            <div class="mb-12 md:mb-0 md:w-8/12 lg:w-5/12 xl:w-5/12 text-snow font-semibold mx-auto text-center md:text-left">
                 <h1 class="text-4xl">TODAS as suas receitas em um só lugar!</h1>
                 <div class="mt-6">
 
                 @if (Route::has('login'))
 
                     @auth
-                        <a href="{{ url('/dashboard') }}"> Dashboard </a>
+                        <p class=" text-snow font-semibold">Voltar a página Inicial?</p>
+                        <a href="{{ url('/dashboard') }}">
+                            <x-primary-button> Página Inicial</x-primary-button>
+                        </a>
 
                 @else
                     <a href="{{ route('login') }}">
