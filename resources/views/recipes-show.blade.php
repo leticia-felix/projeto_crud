@@ -19,14 +19,20 @@
             <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
                 <div class="max-w-xl">
 
-                    <h1 class="uppercase text-green font-extrabold text-2xl"
+                    <h1 class="uppercase text-green font-extrabold text-2xl mb-3"
                     >{{$recipe->title}}</h1>
 
                     <h2 class="text-xl text-softgreen font-semibold"
-                    >Tempo de preparo {{$recipe->time}}</h2>
+                    >Tempo de preparo <span class="text-green"> {{$recipe->time}}</span></h2>
+
+                    <h2 class="text-xl text-softgreen font-semibold mt-2"
+                    >Ingredientes</h2>
+                    <h2 class="text-lg "> {{$recipe->ingredients}}</h2>
 
 
-                    <ol class="list-decimal list-inside">{{$recipe->instructions}}</ol>
+                    <h2 class="text-xl text-softgreen font-semibold mt-1"
+                    >Instruções</h2>
+                    <p class="text-lg">{{$recipe->instructions}}</p>
                 </div>
             </div>
         </div>

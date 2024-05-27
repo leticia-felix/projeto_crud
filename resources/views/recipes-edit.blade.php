@@ -28,22 +28,27 @@
                         @method('PUT')
                         <div>
                             <x-input-label for="title" value="Título" class="text-green font-bold text-xl mt-2" />
-                            <x-text-input id="title" name="title" class="text-snow font-bold text-xl bg-softgreen mt-1 block w-full"  value="{{ $recipe->title }}"> </x-text-input>
+                            <x-text-input id="title" name="title" class="text-snow font-bold text-xl bg-softgreen mt-1 block w-full" required value="{{ $recipe->title }}"> </x-text-input>
 
                         </div>
                         <div>
                             <x-input-label for="time" value="Tempo de Preparo" class="text-green font-bold text-xl mt-2" />
-                            <x-text-input id="time" name="time" class="text-snow text-xl font-bold bg-softgreen mt-1 block w-full"  value="{{ $recipe->time }}" ></x-text-input>
+                            <x-text-input id="time" name="time" class="text-snow text-xl font-bold bg-softgreen mt-1 block w-full" required value="{{ $recipe->time }}" ></x-text-input>
+
+                        </div>
+                        <div>
+                            <x-input-label for="ingredients" value="Ingredientes" class="text-green font-bold text-xl mt-2"/>
+                            <textarea id="ingredients" name="ingredients" rows="4" class="rounded-md border-none focus-ring-none focus:outline-none p-2.5 text-snow text-xl font-bold bg-softgreen mt-1 block w-full" required >{{ $recipe->ingredients}}</textarea>
 
                         </div>
                         <div>
                             <x-input-label for="instructions" value="Instruções" class="text-green font-bold text-xl mt-2"/>
-                            <textarea id="instructions" name="instructions" rows="4" class="rounded-md border-none focus-ring-none focus:outline-none p-2.5 text-snow text-xl font-bold bg-softgreen mt-1 block w-full"  >{{ $recipe->instructions}}</textarea>
+                            <textarea id="instructions" name="instructions" rows="4" class="rounded-md border-none focus-ring-none focus:outline-none p-2.5 text-snow text-xl font-bold bg-softgreen mt-1 block w-full" required >{{ $recipe->instructions}}</textarea>
 
                         </div>
 
 
-                        <x-primary-button type="submit" class="mt-4">Enviar Receita</x-primary-button>
+                        <x-primary-button type="submit" class="mt-4">Atualizar Receita</x-primary-button>
                     </form>
 
 

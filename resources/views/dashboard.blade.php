@@ -17,7 +17,7 @@
 
             <div class="flex justify-end mr-10">
 
-                <a type="button" href="{{ url('/recipes/create') }}"
+                <a type="button" href="{{ route('recipes.create') }}"
                         class="bg-cafe flex justify-center items-center rounded-full px-4 pt-2 pb-2 uppercase leading-normal text-snow hover:text-primary-600 focus:text-primary-600  ">
 
                         <p class="text-2xs font-semibold">Adicionar receita</p>
@@ -45,7 +45,7 @@
 
                                 <tr class="font-semibold text-[0.95rem] text-secondary-dark m-4">
                                 <th class="pb-3 text-start min-w-[175px] ">RECEITA</th>
-                                <th class="pb-3 pt-3 text-end min-w-[100px]">OWNER</th>
+                                <th class="pb-3 pt-3 text-end min-w-[100px]">USÚARIO</th>
                                 <th class="pb-3 pt-3 pr-12 text-end min-w-[175px]">TEMPO DE PREPARO</th>
                                 <th class="pb-3 pr-12 text-end min-w-[100px]"></th>
 

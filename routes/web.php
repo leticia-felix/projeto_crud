@@ -21,13 +21,11 @@ Route::middleware('auth')->group(function () {
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [RecipeController::class, 'index'])->name('dashboard');
     Route::post('/recipes', [RecipeController::class, 'store']);
-    Route::get('/recipes/create', [RecipeController::class, 'create']);
+    Route::get('/recipes/create', [RecipeController::class, 'create'])->name('recipes.create');
     Route::delete('/recipes/{id}', [RecipeController::class, 'destroy'])->name('recipes.destroy');
     Route::get('/recipes/{id}/edit', [RecipeController::class, 'edit'])->name('recipes.edit');
     Route::put('/recipes/{id}', [RecipeController::class, 'update'])->name('recipes.update');
     Route::get('/recipes/{id}', [RecipeController::class, 'show'])->name('recipes.show');
-
-
 
 });
 

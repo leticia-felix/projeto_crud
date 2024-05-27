@@ -24,6 +24,7 @@ class RecipeController extends Controller
         $request->validate([
             'title' => 'required',
             'time' => 'required',
+            'ingredients' => 'required',
             'instructions' => 'required',
         ]);
 
@@ -32,6 +33,7 @@ class RecipeController extends Controller
         $recipe = new Recipe([
             'title' => $request->get('title'),
             'time' => $request->get('time'),
+            'ingredients' => $request->get('ingredients'),
             'instructions' => $request->get('instructions'),
             'user_id' => auth()->id(),
         ]);
