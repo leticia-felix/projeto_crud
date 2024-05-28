@@ -5,7 +5,7 @@
             <div class="flex mt-6 mb-6 ">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center align-left">
-                    <a href="{{ route('dashboard') }}">
+                    <a href="{{ route('recipes.index') }}">
                         <x-application-icon class=" block m-6 h-9 w-auto fill-current text-gray-800" />
                     </a>
                 </div>

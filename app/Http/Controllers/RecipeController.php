@@ -11,7 +11,7 @@ class RecipeController extends Controller
     public function index()
     {
         $recipes = Recipe::where('user_id',Auth::id())->get();
-        return view('dashboard', compact('recipes'));
+        return view('recipes-index', compact('recipes'));
     }
 
     public function create()
@@ -40,7 +40,7 @@ class RecipeController extends Controller
 
         $recipe->save();
 
-        return redirect('/dashboard')->with('success', 'Recipe saved!');
+        return redirect('/recipes')->with('success', 'Recipe saved!');
     }
 
     public function destroy($id)
@@ -48,7 +48,7 @@ class RecipeController extends Controller
         $recipe = Recipe::find($id);
         $recipe->delete();
 
-        return redirect('/dashboard')->with('success', 'Recipe deleted!');
+        return redirect('/recipes')->with('success', 'Recipe deleted!');
     }
 
     public function edit($id) {
@@ -63,7 +63,7 @@ class RecipeController extends Controller
         $recipe->instructions = $request->input('instructions');
         $recipe->save();
 
-        return redirect()->route('dashboard')->with('success', 'Receita atualizada com sucesso!');
+        return redirect()->route('recipes.index')->with('success', 'Receita atualizada com sucesso!');
     }
     public function show($id)
     {

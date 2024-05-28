@@ -8,9 +8,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/recipes', function () {
+    return view('recipes-index');
+})->middleware(['auth', 'verified'])->name('recipes');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -19,8 +19,8 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard', [RecipeController::class, 'index'])->name('dashboard');
-    Route::post('/recipes', [RecipeController::class, 'store']);
+    Route::get('/recipes', [RecipeController::class, 'index'])->name('recipes.index');
+    Route::post('/recipes', [RecipeController::class, 'store'])->name('recipes.store');
     Route::get('/recipes/create', [RecipeController::class, 'create'])->name('recipes.create');
     Route::delete('/recipes/{id}', [RecipeController::class, 'destroy'])->name('recipes.destroy');
     Route::get('/recipes/{id}/edit', [RecipeController::class, 'edit'])->name('recipes.edit');
