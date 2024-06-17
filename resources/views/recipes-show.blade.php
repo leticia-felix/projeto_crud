@@ -5,7 +5,7 @@
 <div class="container">
 
 
-  
+
 
 
     <div class="py-12">
@@ -21,14 +21,22 @@
                     <h2 class="text-xl text-softgreen font-semibold"
                     >Tempo de preparo <span class="text-green"> {{$recipe->time}}</span></h2>
 
+                    <div class="flex mt-2">
+                        <p class="text-xl text-softgreen font-semibold">Categorias:
+                            @foreach($recipe->categories as $category)
+                              <span class="bg-cafe p-2 text-white text-base rounded-full">{{$category->name}}</span>
+                            @endforeach
+                        </p>
+                    </div>
+
                     <h2 class="text-xl text-softgreen font-semibold mt-2"
                     >Ingredientes</h2>
-                    <h2 class="text-lg "> {{$recipe->ingredients}}</h2>
+                    <div style="white-space: pre-wrap;" class=" mt-3   text-lg"> {{$recipe->ingredients}}</div>
 
 
                     <h2 class="text-xl text-softgreen font-semibold mt-1"
                     >Instruções</h2>
-                    <p class="text-lg">{{$recipe->instructions}}</p>
+                    <div style="white-space: pre-wrap;" class="mt-3 text-lg"> {{$recipe->instructions}}</div>
                 </div>
             </div>
         </div>

@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RecipeController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ScheduleController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -26,6 +28,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/recipes/{id}/edit', [RecipeController::class, 'edit'])->name('recipes.edit');
     Route::put('/recipes/{id}', [RecipeController::class, 'update'])->name('recipes.update');
     Route::get('/recipes/{id}', [RecipeController::class, 'show'])->name('recipes.show');
+
+
+    Route::resource('categories', CategoryController::class);
+    Route::resource('schedules', ScheduleController::class);
 
 });
 

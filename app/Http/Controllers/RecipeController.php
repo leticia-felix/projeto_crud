@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Http\Requests\StoreUpdateRecipeFormRequest;
 use Illuminate\Http\Request;
 use App\Models\Recipe;
+use App\Models\Category;
+
 use Illuminate\Support\Facades\Auth;
 
 class RecipeController extends Controller
@@ -14,33 +16,40 @@ class RecipeController extends Controller
         return view('recipes-index', compact('recipes'));
     }
 
+
+
+
     public function create()
     {
-        return view('recipes-create');
+
+        $categories = Category::all();
+        return view('recipes-create', compact('categories'));
+
     }
 
-    public function store(Request $request)
+    public function store(StoreUpdateRecipeFormRequest $request)
     {
-        $request->validate([
-            'title' => 'required',
-            'time' => 'required',
-            'ingredients' => 'required',
-            'instructions' => 'required',
-        ]);
 
 
 
-        $recipe = new Recipe([
-            'title' => $request->get('title'),
-            'time' => $request->get('time'),
-            'ingredients' => $request->get('ingredients'),
-            'instructions' => $request->get('instructions'),
-            'user_id' => auth()->id(),
-        ]);
+            $recipe = new Recipe([
+                'title' => $request->get('title'),
+                'time' => $request->get('time'),
+                'ingredients' => $request->get('ingredients'),
+                'instructions' => $request->get('instructions'),
+                'user_id' => auth()->id(),
+            ]);
 
-        $recipe->save();
+            // Salvar a receita no banco de dados
+            $recipe->save();
 
-        return redirect('/recipes')->with('success', 'Recipe saved!');
+
+            $recipe->categories()->sync($request->input('categories'));
+
+
+            return redirect('/recipes')->with('success', 'Recipe saved!');
+
+
     }
 
     public function destroy($id)
@@ -52,8 +61,11 @@ class RecipeController extends Controller
     }
 
     public function edit($id) {
+
         $recipe = Recipe::findOrFail($id);
-        return view('recipes-edit', compact('recipe'));
+        $categories = Category::all(); // Adicione esta linha
+        return view('recipes-edit', compact('recipe', 'categories'));
+
     }
 
     public function update(Request $request, $id) {
