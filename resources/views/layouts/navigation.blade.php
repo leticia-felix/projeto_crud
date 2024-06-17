@@ -8,6 +8,7 @@
                     <a href="{{ route('recipes.index') }}">
                         <x-application-icon class=" block m-6 h-9 w-auto fill-current text-gray-800" />
                     </a>
+
                 </div>
             </div>
 
@@ -16,6 +17,9 @@
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6 ">
+                <a class="font-medium  active:text-green text-snow hover:text-green  text-2xl mr-2 " href="{{ route('categories.index') }}"> Categorias</a>
+                <a class="font-medium text-snow active:text-green hover:text-green text-2xl mr-2 "href="{{ route('schedules.index') }}"> Agenda</a>
+
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button class="inline-flex items-center px-3 py-2 border border-transparent text-2xl font-semibold leading-4  rounded-md   hover:text-snow text-snow focus:outline-none transition ease-in-out duration-150">
@@ -37,6 +41,14 @@
                         <x-dropdown-link :href="route('profile.edit')">
                             {{ __('Profile') }}
                         </x-dropdown-link>
+
+                        <x-dropdown-link :href="route('categories.index')">
+                           Categorias
+                        </x-dropdown-link>
+
+                        <x-dropdown-link :href="route('schedules.index')">
+                            Agenda
+                         </x-dropdown-link>
 
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
@@ -75,6 +87,14 @@
             <div class="mt-3 space-y-1 text-snow">
                 <x-responsive-nav-link :href="route('profile.edit')">
                     {{ __('Profile') }}
+                </x-responsive-nav-link>
+
+                <x-responsive-nav-link :href="route('categories.index')">
+                    Categorias
+                </x-responsive-nav-link>
+
+                <x-responsive-nav-link :href="route('schedules.index')">
+                     Agenda
                 </x-responsive-nav-link>
 
                 <!-- Authentication -->

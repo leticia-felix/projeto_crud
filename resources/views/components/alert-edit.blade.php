@@ -1,7 +1,7 @@
 
 @if(session('success'))
 
-<div id="alert-box" class="max-w-lg mx-auto p-4">
+<div id="alert-box" class="mx-auto p-4">
     <div class="relative flex flex-col bg-snow rounded-lg  p-4 mb-4" role="alert">
         <button onclick="closeAlert()" type="button" class=" absolute top-2 right-2 p-1.5  inline-flex items-center justify-center h-8 w-8 " aria-label="Close">
             <span class="sr-only">Close</span>

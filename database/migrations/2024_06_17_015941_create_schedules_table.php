@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('recipe_id')->constrained()->onDelete('cascade');
             $table->date('scheduled_date');
-            $table->text('shopping_list');
+            $table->text('shopping_list')->nullable();
             $table->string('meal')->nullable();
             $table->timestamps();
         });

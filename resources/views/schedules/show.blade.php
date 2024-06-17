@@ -18,8 +18,10 @@
                     <a href="{{ route('recipes.show', $schedule->recipe->id) }}" class="uppercase text-green font-extrabold text-2xl mb-3"
                     >{{ $schedule->recipe->title }}</a>
 
-                    <h1 class="uppercase text-green font-extrabold text-xl mb-3"
-                    >{{ $schedule->scheduled_date }}</h1>
+                    <h1 class="uppercase text-green font-extrabold text-xl mb-3">{{ $schedule->scheduled_date }}</h1>
+
+
+
 
                     <h2 class="text-xl text-softgreen font-semibold"
                     >Tempo de preparo <span class="text-green"> {{$schedule->recipe->time}}</span></h2>
